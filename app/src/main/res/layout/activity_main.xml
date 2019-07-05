@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#002366"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="197dp"
+        android:layout_height="193dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="462dp" />
+
+    <EditText
+        android:id="@+id/loginEmailEditText"
+        android:layout_width="319dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="46dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/white"
+        android:textColorHint="#fff"
+        android:backgroundTint="#fff"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <EditText
+        android:id="@+id/loginPasswordEditText"
+        android:layout_width="319dp"
+        android:backgroundTint="#fff"
+        android:layout_height="49dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="46dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="@android:color/white"
+        android:textColorHint="#fff"
+
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginEmailEditText" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="276dp" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="238dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:background="#ADD8E6"
+        android:text="Log in"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="178dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="No account yet?"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/loginButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+    <TextView
+        android:id="@+id/createaccTextView"
+        android:layout_width="140dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:onClick="signUp"
+        android:text="create one"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
