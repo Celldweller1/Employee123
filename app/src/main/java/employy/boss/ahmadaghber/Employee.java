@@ -1,32 +1,43 @@
 package employy.boss.ahmadaghber;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 
-public class Employee implements Serializable {
+public class Employee {
     private String firstName,
     lastName,
     email,
     password;
-    private ArrayList<String> task = new ArrayList<>();
+    private ArrayList<String> task ;
 
-
-
-    public Employee() {
-        this.firstName = " ";
-        this.lastName = " ";
-        this.email = " ";
-        this.password = " ";
-        task.add("hello");
-        task.add("no");
-        task.add("yes");
-    }
-
-    public Employee(String firstName, String lastName, String email, String password) {
+    //constructor with parameters
+    public Employee(String firstName, String lastName, String email, String password, ArrayList<String> task) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.task = task;
+    }
+
+
+    //constructor
+    public Employee() {
+        task  = new ArrayList<String>();
+        // array of  tasks
+        String [] tasks ={"do android project" , "do firebase android project" , "upload your presentation"
+                , "make sure to like TTI pages" , "go to an event" , "go and follow TTI on twitter" , "go and check TTI website"
+                , "go and subscribe to TTI on youtube"};
+
+        //random variable
+        int rand;
+
+        for(int i=0;i<4;i++){
+            rand = (int) (Math.random() * tasks.length) + 0;
+            //add tasks[random variable]  to task
+            if(tasks[rand]!= " ")
+            task.add(tasks[rand]);
+            tasks[rand]=" ";
+        }
     }
 
     public ArrayList<String> getTask() {
@@ -68,4 +79,5 @@ public class Employee implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

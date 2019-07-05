@@ -52,6 +52,8 @@
         android:layout_height="49dp"
         android:layout_marginStart="46dp"
         android:layout_marginTop="28dp"
+        android:usesCleartextTraffic="true"
+
         android:layout_marginEnd="46dp"
         android:ems="10"
         android:hint="Password"
@@ -77,8 +79,10 @@
         android:layout_height="77dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
+        android:usesCleartextTraffic="true"
+
         android:layout_marginEnd="8dp"
-        android:background="#ADD8E6"
+        android:background="@drawable/buttondesign"
         android:text="Log in"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,6 +92,7 @@
 
     <TextView
         android:id="@+id/textView3"
+        android:usesCleartextTraffic="true"
         android:layout_width="178dp"
         android:layout_height="52dp"
         android:layout_marginStart="8dp"

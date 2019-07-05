@@ -26,28 +26,58 @@ public class FirebaseDatabaseCollector {
     private DatabaseReference mReference;
     private ArrayList<Employee> employees = new ArrayList<>();
 
+    //constructor
     public FirebaseDatabaseCollector(){
+        //get database references and instance to read/write data
         mAuth = FirebaseDatabase.getInstance();
         mReference = mAuth.getReference("employee");
     }
 
+    public FirebaseDatabase getmAuth() {
+        return mAuth;
+    }
+
+    public void setmAuth(FirebaseDatabase mAuth) {
+        this.mAuth = mAuth;
+    }
+
+    public DatabaseReference getmReference() {
+        return mReference;
+    }
+
+    public void setmReference(DatabaseReference mReference) {
+        this.mReference = mReference;
+    }
+
+    public ArrayList<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(ArrayList<Employee> employees) {
+        this.employees = employees;
+    }
+
+    //interface for each call for DataStatus to override it's methods
     public interface DataStatus{
         void dataIsLoaded(ArrayList<Employee> employees , List<String>keys);
         void dataIsInserted();
         void dataIsUpdated();
         void dataIsDeleted();
     }
-    int i=0;
+    //read data from database
     public void readEmployee(final DataStatus dataStatus){
         mReference.addValueEventListener(new ValueEventListener() {
             @Override
+            //Datasnapshot to read each element in database
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<String> keys = new ArrayList<>();
-                i=keys.size();
                 for ( DataSnapshot keyNode : dataSnapshot.getChildren() ){
+
+                    //add each employee in database to employees
                     keys.add(keyNode.getKey());
                     Employee employee = keyNode.getValue(Employee.class);
                     employees.add(employee);
+
                 }
                 dataStatus.dataIsLoaded(employees,keys);
             }
@@ -60,9 +90,11 @@ public class FirebaseDatabaseCollector {
     }
 
 
+    //to write to database
     public void add(Employee employee , final  DataStatus dataStatus){
         String key = mReference.push().getKey();
 
+        //write to database using the key and it's child (employee)
         mReference.child(key).setValue(employee).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
